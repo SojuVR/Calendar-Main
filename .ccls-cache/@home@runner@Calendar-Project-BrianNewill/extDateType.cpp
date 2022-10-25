@@ -4,8 +4,15 @@
 using namespace std;
 
 string extDateType::months[] = {"", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
-extDateType::extDateType(int m, int d, int y):dateType(m, d, y)
+
+extDateType::extDateType():dateType()
 {
+  sMonth = months[1];
+}
+
+void extDateType::setExtDate(int m, int d, int y)
+{
+  dateType::setDate(m, d, y);
   sMonth = months[getMonth()];
 }
 
