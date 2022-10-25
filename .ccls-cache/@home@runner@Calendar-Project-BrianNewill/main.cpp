@@ -1,7 +1,7 @@
 /*This program will act as a calendar for a user to find specific days. At the moment, this will focus on dayType, meaning the days of the week. The program will show the constructors as default and with parameters, the net and previous day of the default constructor, and added days to a parameter constructor.*/
 #include<iostream>
 #include<string>
-#include"dateType.h"
+#include"extDateType.h"
 
 using namespace std;
 
@@ -11,20 +11,22 @@ int main()
   int cDay;
   int cYear;
   int daysInMonth;
-  dateType date;
+  extDateType date;
   cout << "Default constructor: ";
-  date = dateType();
+  date = extDateType();
   cMonth = date.getMonth();
   cDay = date.getDay();
   cYear = date.getYear();
-  date.print();
+  date.printLongDate();
+  date.printLongMonthYear();
   
   cout << "Constructor: ";
-  date.setDate(2, 20, 2003);
+  date.extDateType(2, 20, 2003);
   cMonth = date.getMonth();
   cDay = date.getDay();
   cYear = date.getYear();
-  date.print();
+  date.printLongDate();
+  date.printLongMonthYear();
   
   cout << "Number of days passed: ";
   cout << date.daysPassed() << endl;
@@ -41,7 +43,8 @@ int main()
   cMonth = date.getMonth();
   cDay = date.getDay();
   cYear = date.getYear();
-  date.print();
+  date.printLongDate();
+  date.printLongMonthYear();
   
   cout << "Resetting year to 2000: ";
   date.setYear(2000);
@@ -49,7 +52,8 @@ int main()
   cMonth = date.getMonth();
   cDay = date.getDay();
   cYear = date.getYear();
-  date.print();
+  date.printLongDate();
+  date.printLongMonthYear();
   
   cout << "Resetting month to 2: ";
   date.setMonth(2);
@@ -57,7 +61,8 @@ int main()
   cMonth = date.getMonth();
   cDay = date.getDay();
   cYear = date.getYear();
-  date.print();
+  date.printLongDate();
+  date.printLongMonthYear();
   
   cout << "Resetting day to 29: ";
   date.setDay(29);
@@ -65,10 +70,12 @@ int main()
   cMonth = date.getMonth();
   cDay = date.getDay();
   cYear = date.getYear();
-  date.print();
+  date.printLongDate();
+  date.printLongMonthYear();
   
   cout << "Date is now set to: ";
-  date.print();
+  date.printLongDate();
+  date.printLongMonthYear();
   
   cout << "Resetting year to 2001: ";
   date.setYear(2001);
@@ -78,11 +85,13 @@ int main()
   cYear = date.getYear();
   
   cout << "Date is now set to: ";
-  date.print();
+  date.printLongDate();
+  date.printLongMonthYear();
   
   cout << "Resetting month to 0: ";
   date.setMonth(0);
   cout << date.getMonth() << endl;
-  date.print();
+  date.printLongDate();
+  date.printLongMonthYear();
   return 0;
 }
