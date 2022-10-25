@@ -1,4 +1,4 @@
-/*This program will act as a calendar for a user to find specific days. At the moment, this will focus on dayType, meaning the days of the week. The program will show the constructors as default and with parameters, the net and previous day of the default constructor, and added days to a parameter constructor.*/
+/*This program will act as a calendar for a user to find specific days. At the moment, this will focus on extDateType, meaning the date witht eh month written as a string. The program will show the constructors as default and with parameters, all of the dateType functions and variables, and new date prints*/
 #include<iostream>
 #include<string>
 #include"extDateType.h"

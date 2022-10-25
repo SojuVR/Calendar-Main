@@ -16,6 +16,30 @@ void extDateType::setExtDate(int m, int d, int y)
   sMonth = months[getMonth()];
 }
 
+void extDateType::setMonth(int m)
+{
+  dateType::setMonth(m);
+  sMonth = months[getMonth()];
+}
+
+void extDateType::setDay(int d)
+{
+  dateType::setDay(d);
+  sMonth = months[getMonth()];
+}
+
+void extDateType::setYear(int y)
+{
+  dateType::setYear(y);
+  sMonth = months[getMonth()];
+}
+
+void extDateType::addDay(int d)
+{
+  dateType::addDay(d);
+  sMonth = months[getMonth()];
+}
+
 void extDateType::printLongDate()
   {
     cout << sMonth << " " << getDay() << ", " << getYear() << endl;

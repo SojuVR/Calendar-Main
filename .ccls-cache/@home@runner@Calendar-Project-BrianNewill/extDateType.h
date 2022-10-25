@@ -9,6 +9,10 @@ class extDateType: public dateType
 {
   public:
   void setExtDate(int, int, int);
+  void setMonth(int);
+  void setDay(int);
+  void setYear(int);
+  void addDay(int);
   void printLongDate();
   void printLongMonthYear();
   
