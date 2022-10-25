@@ -10,7 +10,7 @@ dateType::dateType()
   year = 1900;
 }
 
-void dateType::setDate(int m, int d, int y)
+dateType::dateType(int m, int d, int y)
 {
   if (1900 <= y)
   {

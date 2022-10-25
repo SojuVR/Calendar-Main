@@ -21,7 +21,7 @@ int main()
   date.print();
   
   cout << "Constructor: ";
-  date.setDate(2, 20, 2003);
+  date = dateType(2, 20, 2003);
   cMonth = date.getMonth();
   cDay = date.getDay();
   cYear = date.getYear();

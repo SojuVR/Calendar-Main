@@ -4,7 +4,7 @@
 class dateType
 {
   public:
-  void setDate(int, int, int); //constructor with parameters
+  
   void setMonth(int);
   void setDay(int);
   void setYear(int);
@@ -19,6 +19,7 @@ class dateType
   void print();
 
   dateType(); //constructor
+  dateType(int, int, int); //constructor with parameters
 
   private:
   int month;
