@@ -11,10 +11,10 @@ extDateType::extDateType(int m, int d, int y):dateType(m, d, y)
 
 void extDateType::printLongDate()
   {
-    cout << sMonth << " " << day << ", " << year << endl;
+    cout << sMonth << " " << getDay() << ", " << getYear() << endl;
   }
 
 void extDateType::printLongMonthYear()
   {
-    cout << sMonth << " " << year << endl;
+    cout << sMonth << " " << getYear() << endl;
   }

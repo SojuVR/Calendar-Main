@@ -21,7 +21,7 @@ int main()
   date.printLongMonthYear();
   
   cout << "Constructor: ";
-  date.extDateType(2, 20, 2003);
+  date = extDateType(2, 20, 2003);
   cMonth = date.getMonth();
   cDay = date.getDay();
   cYear = date.getYear();
