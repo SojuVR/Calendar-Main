@@ -1,4 +1,4 @@
-/*This program will act as a calendar for a user to find specific days. At the moment, this will focus on dayType, meaning the days of the week. The program will show the constructors as default and with parameters, the net and previous day of the default constructor, and added days to a parameter constructor.*/
+/*This program will act as a calendar for a user to find specific days. At the moment, this will focus on dateType, meaning the date by month, day, and year. The program will show the constructors as default and with parameters, the days passed and remaining, the days in a month, adjusted dates by paramters, and individual resetting of month, day, and year.*/
 #include<iostream>
 #include<string>
 #include"dateType.h"
@@ -7,10 +7,11 @@ using namespace std;
 
 int main()
 {
+  //variables for finding current date after each change on each part
   int cMonth;
   int cDay;
   int cYear;
-  int daysInMonth;
+  int daysInMonth; //days in current month
   dateType date;
   cout << "Default constructor: ";
   date = dateType();

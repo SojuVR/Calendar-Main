@@ -4,21 +4,21 @@
 class dateType
 {
   public:
-  void setDate(int, int, int);
+  void setDate(int, int, int); //constructor with parameters
   void setMonth(int);
   void setDay(int);
   void setYear(int);
-  void addDay(int);
-  int daysPassed();
-  int daysLeft();
-  int lastDayOfMonth(int);
-  bool leapYear();
+  void addDay(int); //adds given amount of days
+  int daysPassed(); //days since day 1 of year
+  int daysLeft(); //find how many days left in year
+  int lastDayOfMonth(int); //finds how many days is in current month
+  bool leapYear(); //finds if it is a leap year
   int getMonth() {return month;}
   int getDay() {return day;}
   int getYear() {return year;}
   void print();
 
-  dateType();
+  dateType(); //constructor
 
   private:
   int month;
