@@ -10,7 +10,7 @@ dateType::dateType()
   year = 1900;
 }
 
-void dateType::setDate(int m, int d, int y)
+dateType::dateType(int m, int d, int y)
 {
   if (1900 <= y)
   {
@@ -99,9 +99,20 @@ int dateType::daysPassed()
 {
   int passed = 0;
   int daysInMonth;
-  for (int i = 1; i < month; i++)
+  for (int i = 1900; i < year; i++)
     {
-      daysInMonth = lastDayOfMonth(i);
+      if (leapYear() == true)
+      {
+        passed = passed + 366;
+      }
+      else
+      {
+        passed = passed + 365;
+      }
+    }
+  for (int j = 1; j < month; j++)
+    {
+      daysInMonth = lastDayOfMonth(j);
       passed = passed + daysInMonth;
     }
   passed = passed + day;

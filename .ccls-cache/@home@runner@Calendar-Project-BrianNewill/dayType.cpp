@@ -71,7 +71,7 @@ void dayType::addDay(int n)
       }
     }
   i = i+n; //adds the total days
-  while (i >= 7) //makes it so i is withing hte array of 7
+  while (i >= 7) //makes it so i is within the array of 7
     {
       i = i-7;
     }

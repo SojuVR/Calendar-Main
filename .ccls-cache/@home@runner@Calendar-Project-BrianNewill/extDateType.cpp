@@ -10,9 +10,8 @@ extDateType::extDateType():dateType()
   sMonth = months[1];
 }
 
-void extDateType::setExtDate(int m, int d, int y)
+extDateType::extDateType(int m, int d, int y):dateType(m, d, y)
 {
-  dateType::setDate(m, d, y);
   sMonth = months[getMonth()];
 }
 

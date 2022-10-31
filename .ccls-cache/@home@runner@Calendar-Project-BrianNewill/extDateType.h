@@ -8,7 +8,6 @@ using namespace std;
 class extDateType: public dateType
 {
   public:
-  void setExtDate(int, int, int);
   void setMonth(int);
   void setDay(int);
   void setYear(int);
@@ -18,6 +17,7 @@ class extDateType: public dateType
   
 
   extDateType(); //constructor
+  extDateType(int, int, int);
 
   private:
   string sMonth;
