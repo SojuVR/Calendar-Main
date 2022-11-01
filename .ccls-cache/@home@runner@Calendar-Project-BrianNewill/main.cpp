@@ -15,14 +15,14 @@ int main()
   cout << "Please type in the number of the month: ";
   cin >> month;
   calendar1.setMonth(month);
-  cout << "\n\nPlease type in the year: ";
+  cout << "Please type in the year: ";
   cin >> year;
-  cout << "\n\n";
+  cout << "\n";
   calendar1.setYear(year);
   calendarType(month, year);
-  calendar1.printCalendar();
+  calendar1.printCalendar(month, year);
 
-  cout << "Print another calendar? (y or n): ";
+  cout << "\n\nPrint another calendar? (y or n): ";
   cin >> answer;
   if (answer == "y")
   {
@@ -31,14 +31,14 @@ int main()
       cout << "Please type in the number of the month: ";
       cin >> month;
       calendar1.setMonth(month);
-      cout << "\n\nPlease type in the year: ";
+      cout << "Please type in the year: ";
       cin >> year;
-      cout << "\n\n";
+      cout << "\n";
       calendar1.setYear(year);
       calendarType(month, year);
-      calendar1.printCalendar();
+      calendar1.printCalendar(month, year);
 
-      cout << "Print another calendar? (y or n): ";
+      cout << "\n\nPrint another calendar? (y or n): ";
       cin >> answer;
     }
   }

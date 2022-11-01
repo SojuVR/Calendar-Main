@@ -12,16 +12,17 @@ class calendarType
   void setYear(int);
   int getMonth();
   int getYear();
-  void printCalendar();
+  void printCalendar(int, int);
   calendarType(int, int);
   calendarType();
 
   private:
+  int days[6][7];
   dayType firstDay;
   extDateType firstDate;
   dayType firstDayOfMonth();
   void printTitle(); //month and year printed with row of days
-  void printDays(); //days of the month specified printed
+  void printDays(int, int); //days of the month specified printed
 };
 
 #endif

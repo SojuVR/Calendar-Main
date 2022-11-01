@@ -16,29 +16,17 @@ dateType::dateType(int m, int d, int y)
   {
     year = y;
   }
-  else
-  {
-    year = 1900;
-  }
   leapYear();
   
   if (0 < m && m <= 12)
   {
     month = m;
   }
-  else
-  {
-    month = 1;
-  }
 
   lastDayOfMonth(m);
   if (0 < d && d <= lastDayOfMonth(m))
   {
     day = d;
-  }
-  else
-  {
-    day = 1;
   }
 }
 
