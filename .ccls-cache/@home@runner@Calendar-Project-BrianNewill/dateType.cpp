@@ -16,7 +16,7 @@ dateType::dateType(int m, int d, int y)
   {
     year = y;
   }
-  leapYear();
+  leapYear(year);
   
   if (0 < m && m <= 12)
   {
@@ -51,7 +51,7 @@ int dateType::lastDayOfMonth(int m)
         lastDay = 30;
         break;
       case 2:
-        if (leapYear() == true)
+        if (leapYear(year) == true)
         {
           lastDay = 29;
           break;
@@ -65,16 +65,24 @@ int dateType::lastDayOfMonth(int m)
   return lastDay;
 }
 
-bool dateType::leapYear()
+bool dateType::leapYear(int y)
 {
-  if (year % 4 == 0)
+  if (y % 4 == 0)
   {
-    if (year % 100 == 0)
+    if (y % 100 == 0)
     {
-      if (year % 400 == 0);
+      if (y % 400 == 0)
       {
         return true;
       }
+      else
+      {
+        return false;
+      }
+    }
+    else
+    {
+      return true;
     }
   }
   else
@@ -89,7 +97,8 @@ int dateType::daysPassed()
   int daysInMonth;
   for (int i = 1900; i < year; i++)
     {
-      if (leapYear() == true)
+      leapYear(i);
+      if (leapYear(i) == true)
       {
         passed = passed + 366;
       }
@@ -112,8 +121,8 @@ int dateType::daysLeft()
   int remaining;
   int passed = daysPassed();
   
-  leapYear();
-  if (leapYear() == true)
+  leapYear(year);
+  if (leapYear(year) == true)
   {
     remaining = 366 - passed;
   }
@@ -160,10 +169,6 @@ void dateType::setDay(int d)
   {
     day = d;
   }
-  else
-  {
-    day = 1;
-  }
 }
 
 void dateType::setYear(int y)
@@ -172,15 +177,7 @@ void dateType::setYear(int y)
   {
     year = y;
   }
-  else
-  {
-    year = 1900;
-  }
-  leapYear();
-  if (leapYear() == false && day == 29)
-  {
-    day = 1;
-  }
+  leapYear(year);
 }
 
 void dateType::print()

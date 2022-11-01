@@ -17,7 +17,6 @@ int main()
   calendar1.setMonth(month);
   cout << "Please type in the year: ";
   cin >> year;
-  cout << "\n";
   calendar1.setYear(year);
   calendarType(month, year);
   calendar1.printCalendar(month, year);
@@ -40,6 +39,7 @@ int main()
 
       cout << "\n\nPrint another calendar? (y or n): ";
       cin >> answer;
+      
     }
   }
   else

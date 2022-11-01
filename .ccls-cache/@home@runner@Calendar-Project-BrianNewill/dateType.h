@@ -11,7 +11,7 @@ class dateType
   int daysPassed();
   int daysLeft();
   int lastDayOfMonth(int);
-  bool leapYear();
+  bool leapYear(int y);
   int getMonth() {return month;}
   int getDay() {return day;}
   int getYear() {return year;}

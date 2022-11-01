@@ -27,12 +27,13 @@ void calendarType::setYear(int y)
 {
   assert(y >= 1900);
   firstDate.setYear(y);
+  firstDay = firstDayOfMonth();
 }
 
 dayType calendarType::firstDayOfMonth()
 {
   dayType tempDay;
-  int passedDays;
+  int passedDays; //to send into addDay function
 
   tempDay.setDay("Monday");
   passedDays = firstDate.daysPassed();
@@ -57,6 +58,7 @@ void calendarType::printDays(int m, int y)
   tempMonth.setYear(y);
   lastDay = tempMonth.lastDayOfMonth(m);
   tempFirstDay = firstDay.getDay();
+  //everything below decides how the first row is laid out
   if (tempFirstDay == "Sunday")
   {
     firstCol = 0;
@@ -91,14 +93,14 @@ void calendarType::printDays(int m, int y)
     firstCol = 6;
     cout << setw(24) << "";
   }
-  for (firstCol; firstCol < 7; firstCol++)
+  for (firstCol; firstCol < 7; firstCol++) //sets first row
         {
           days[0][firstCol] = day;
           cout << setw(3) << days[0][firstCol] << " ";
           day++;
         }
   cout << endl;
-  for (int row = 1; row < 6; row++)
+  for (int row = 1; row < 6; row++) //sets rest of rows
     {
       for (int col = 0; col < 7; col++)
         {
