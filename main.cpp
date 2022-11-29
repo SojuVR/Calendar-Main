@@ -50,13 +50,13 @@ int main()
   calendarType(month, year);
   calendar1.printCalendar(month, year);
 
-  cout << "\n\nPrint another calendar? (y or n): ";
+  cout << "\n\nPrint another calendar? (y to continue): ";
   cin >> answer;
   if (answer == "y")
   {
-    tryAgain = true;
-    while (answer != "n") //loop for continuing the program again
+    while (answer == "y") //loop for continuing the program again
     {
+      tryAgain = true;
       cout << "Please type in the number of the month: ";
       cin >> month;
       while (tryAgain)
@@ -94,7 +94,7 @@ int main()
       calendarType(month, year);
       calendar1.printCalendar(month, year);
     
-      cout << "\n\nPrint another calendar? (y or n): ";
+      cout << "\n\nPrint another calendar? (y to continue): ";
       cin >> answer;
     }
   }
