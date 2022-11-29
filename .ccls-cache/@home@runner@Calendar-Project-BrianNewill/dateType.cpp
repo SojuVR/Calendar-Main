@@ -152,13 +152,17 @@ void dateType::addDay(int d)
 
 void dateType::setMonth(int m)
 {
-  if (0 < m && m <= 12)
+  try
   {
+    if (1 > m || m > 12)
+    {
+      throw invalidMonth();
+    }
     month = m;
   }
-  else
+  catch (invalidMonth)
   {
-    month = 1;
+    throw;
   }
 }
 
@@ -173,11 +177,19 @@ void dateType::setDay(int d)
 
 void dateType::setYear(int y)
 {
-  if (1900 <= y)
+  try
   {
+    if (1900 > y)
+    {
+      throw invalidYear();
+    }
     year = y;
+    leapYear(year);
+  } 
+  catch (invalidYear)
+  {
+    throw;
   }
-  leapYear(year);
 }
 
 void dateType::print()
