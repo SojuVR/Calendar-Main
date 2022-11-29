@@ -10,18 +10,18 @@ class dateType
   void setMonth(int);
   void setDay(int);
   void setYear(int);
-  void addDay(int); //adds given amount of days
-  int daysPassed(); //days since day 1 of year
-  int daysLeft(); //find how many days left in year
-  int lastDayOfMonth(int); //finds how many days is in current month
-  bool leapYear(); //finds if it is a leap year
+  void addDay(int);
+  int daysPassed();
+  int daysLeft();
+  int lastDayOfMonth(int);
+  bool leapYear(int y);
   int getMonth() {return month;}
   int getDay() {return day;}
   int getYear() {return year;}
   void print();
 
-  dateType(); //constructor
-  dateType(int, int, int); //constructor with parameters
+  dateType();
+  dateType(int, int, int); 
 
   class invalidYear
   {
