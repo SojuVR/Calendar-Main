@@ -8,32 +8,45 @@ using namespace std;
 int main()
 {
   calendarType calendar1;
-  dateType date1;
   string answer; //for user input of printing another calendar
   int month;
   int year;
+  bool tryAgain = true;
 
   cout << "Please type in the number of the month: ";
   cin >> month;
-  try 
+  while (tryAgain)
   {
-    calendar1.setMonth(month); 
+    try 
+    {
+      calendar1.setMonth(month); 
+      tryAgain = false;
+    }
+    catch (dateType::invalidMonth calendar1)
+    {
+      cout << calendar1.what() << endl;
+      cout << "Please retry: ";
+      cin >> month;
+    }
   }
-  catch (dateType invalidMonth())
-  {
-    cin >> month;
-  }
+  tryAgain = true;
   cout << "Please type in the year: ";
   cin >> year;
   cout << "\n";
-  try
+  while (tryAgain)
   {
-    calendar1.setYear(year);
-  }  
-  catch (dateType invalidYear())
-  {
-    cout << date1.what();
-  }  
+    try
+    {
+      calendar1.setYear(year);
+      tryAgain = false;
+    }  
+    catch (dateType::invalidYear calendar1)
+    {
+      cout << calendar1.what() << endl;
+      cout << "Please retry: ";
+      cin >> year;
+    }  
+  }
   calendarType(month, year);
   calendar1.printCalendar(month, year);
 
@@ -41,32 +54,46 @@ int main()
   cin >> answer;
   if (answer == "y")
   {
+    tryAgain = true;
     while (answer != "n") //loop for continuing the program again
     {
       cout << "Please type in the number of the month: ";
       cin >> month;
-      try 
+      while (tryAgain)
       {
-        calendar1.setMonth(month); 
+        try 
+        {
+          calendar1.setMonth(month); 
+          tryAgain = false;
+        }
+        catch (dateType::invalidMonth calendar1)
+        {
+          cout << calendar1.what() << endl;
+          cout << "Please retry: ";
+          cin >> month;
+        }
       }
-      catch (dateType invalidMonth())
-      {
-        cin >> month;
-      }
+      tryAgain = true;
       cout << "Please type in the year: ";
       cin >> year;
       cout << "\n";
-      try
+      while (tryAgain)
       {
-        calendar1.setYear(year);
-      }  
-      catch (dateType invalidYear())
-      {
-        cin >> year;
-      }  
+        try
+        {
+          calendar1.setYear(year);
+          tryAgain = false;
+        }  
+        catch (dateType::invalidYear calendar1)
+        {
+          cout << calendar1.what() << endl;
+          cout << "Please retry: ";
+          cin >> year;
+        }
+      }
       calendarType(month, year);
       calendar1.printCalendar(month, year);
-    
+
       cout << "\n\nPrint another calendar? (y or n): ";
       cin >> answer;
     }
