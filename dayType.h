@@ -11,6 +11,10 @@ class dayType
   //returns the day and can print it
   string getDay() {return day;}
   //gets the next day of the day that was returned
+  string nextDay();
+  //gets the previous day of the day that was returned
+  string previousDay();
+  //adds a certain amount of days to the returned day
   void addDay(int n);
 
   //default constructor
