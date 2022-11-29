@@ -1,5 +1,6 @@
 #include <iostream>
 #include "dateType.h"
+#include <string>
 
 using namespace std;
 
@@ -12,22 +13,28 @@ dateType::dateType()
 
 dateType::dateType(int m, int d, int y)
 {
-  if (1900 <= y)
+  if (1900 > y)
   {
+    throw invalidYear();
+  }
+  else
     year = y;
-  }
-  leapYear(year);
+  leapYear();
   
-  if (0 < m && m <= 12)
+  if (0 >= m || m > 12)
   {
-    month = m;
+    throw invalidMonth();
   }
+  else
+    month = m;
 
   lastDayOfMonth(m);
-  if (0 < d && d <= lastDayOfMonth(m))
+  if (0 >= d || d > lastDayOfMonth(m))
   {
-    day = d;
+    throw invalidDay();
   }
+  else
+    day = d;
 }
 
 int dateType::lastDayOfMonth(int m)
@@ -51,7 +58,7 @@ int dateType::lastDayOfMonth(int m)
         lastDay = 30;
         break;
       case 2:
-        if (leapYear(year) == true)
+        if (leapYear() == true)
         {
           lastDay = 29;
           break;
@@ -65,24 +72,16 @@ int dateType::lastDayOfMonth(int m)
   return lastDay;
 }
 
-bool dateType::leapYear(int y)
+bool dateType::leapYear()
 {
-  if (y % 4 == 0)
+  if (year % 4 == 0)
   {
-    if (y % 100 == 0)
+    if (year % 100 == 0)
     {
-      if (y % 400 == 0)
+      if (year % 400 == 0);
       {
         return true;
       }
-      else
-      {
-        return false;
-      }
-    }
-    else
-    {
-      return true;
     }
   }
   else
@@ -95,21 +94,9 @@ int dateType::daysPassed()
 {
   int passed = 0;
   int daysInMonth;
-  for (int i = 1900; i < year; i++)
+  for (int i = 1; i < month; i++)
     {
-      leapYear(i);
-      if (leapYear(i) == true)
-      {
-        passed = passed + 366;
-      }
-      else
-      {
-        passed = passed + 365;
-      }
-    }
-  for (int j = 1; j < month; j++)
-    {
-      daysInMonth = lastDayOfMonth(j);
+      daysInMonth = lastDayOfMonth(i);
       passed = passed + daysInMonth;
     }
   passed = passed + day;
@@ -121,8 +108,8 @@ int dateType::daysLeft()
   int remaining;
   int passed = daysPassed();
   
-  leapYear(year);
-  if (leapYear(year) == true)
+  leapYear();
+  if (leapYear() == true)
   {
     remaining = 366 - passed;
   }
@@ -156,10 +143,6 @@ void dateType::setMonth(int m)
   {
     month = m;
   }
-  else
-  {
-    month = 1;
-  }
 }
 
 void dateType::setDay(int d)
@@ -177,7 +160,11 @@ void dateType::setYear(int y)
   {
     year = y;
   }
-  leapYear(year);
+  leapYear();
+  if (leapYear() == false && day == 29)
+  {
+    day = 1;
+  }
 }
 
 void dateType::print()
