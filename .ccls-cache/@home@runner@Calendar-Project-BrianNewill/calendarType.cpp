@@ -18,14 +18,12 @@ calendarType::calendarType(int m, int y):firstDate(m, 1, y)
 
 void calendarType::setMonth(int m)
 {
-  assert(m >= 1 && m <= 12);
   firstDate.setMonth(m);
   firstDay = firstDayOfMonth();
 }
 
 void calendarType::setYear(int y)
 {
-  assert(y >= 1900);
   firstDate.setYear(y);
   firstDay = firstDayOfMonth();
 }

@@ -19,46 +19,6 @@ void dayType::setDay(string d)
     }
 }
 
-string dayType::nextDay()
-{
-  int i;
-  string nextDay;
-  for (int i = 0; i < 7; i++)
-    {
-      if (day == weekDay[i])
-      {
-        i = i+1;
-        nextDay = weekDay[i];
-        if (i == 7) //if the array count goes over the amount of days, resets to bottom
-        {
-          nextDay = weekDay[0];
-          break;
-        }
-      }
-    }
-  return nextDay;
-}
-  
-string dayType::previousDay()
-{
-  int i;
-  string previousDay;
-  for (int i = 0; i < 7; i++)
-    {
-      if (day == weekDay[i])
-      {
-        i = i-1;
-        previousDay = weekDay[i];
-        if (i < 0) //if the array count goes below the amount of days, resets to top
-        {
-          previousDay = weekDay[6];
-          break;
-        }
-      }
-    }
-  return previousDay;
-}
-
 void dayType::addDay(int n)
 {
   int i;
