@@ -1,5 +1,6 @@
 #include <iostream>
 #include "dateType.h"
+#include <string>
 
 using namespace std;
 
@@ -12,34 +13,28 @@ dateType::dateType()
 
 dateType::dateType(int m, int d, int y)
 {
-  if (1900 <= y)
+  if (1900 > y)
   {
-    year = y;
+    throw invalidYear();
   }
   else
-  {
-    year = 1900;
-  }
+    year = y;
   leapYear();
   
-  if (0 < m && m <= 12)
+  if (0 >= m || m > 12)
   {
-    month = m;
+    throw invalidMonth();
   }
   else
-  {
-    month = 1;
-  }
+    month = m;
 
   lastDayOfMonth(m);
-  if (0 < d && d <= lastDayOfMonth(m))
+  if (0 >= d || d > lastDayOfMonth(m))
   {
-    day = d;
+    throw invalidDay();
   }
   else
-  {
-    day = 1;
-  }
+    day = d;
 }
 
 int dateType::lastDayOfMonth(int m)
@@ -148,10 +143,6 @@ void dateType::setMonth(int m)
   {
     month = m;
   }
-  else
-  {
-    month = 1;
-  }
 }
 
 void dateType::setDay(int d)
@@ -161,10 +152,6 @@ void dateType::setDay(int d)
   {
     day = d;
   }
-  else
-  {
-    day = 1;
-  }
 }
 
 void dateType::setYear(int y)
@@ -172,10 +159,6 @@ void dateType::setYear(int y)
   if (1900 <= y)
   {
     year = y;
-  }
-  else
-  {
-    year = 1900;
   }
   leapYear();
   if (leapYear() == false && day == 29)
